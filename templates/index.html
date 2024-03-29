@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Crime Prediction</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Pacifico"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Arimo"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Hind:300"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300"
+      rel="stylesheet"
+      type="text/css"
+    />
+  </head>
+  <body>
+    <div class="login">
+      <h1 style="color: red">Crime Prediction</h1>
+      <form action="{{ url_for('predict')}}" method="post">
+        <input
+          class="textbox"
+          type="text"
+          name="month"
+          placeholder="Month"
+          required="required"
+        />
+        <br />
+        <br />
+        <input
+          class="textbox"
+          type="text"
+          name="day"
+          placeholder="Day"
+          required="required"
+        />
+        <br />
+        <br />
+        <input
+          class="textbox"
+          type="text"
+          name="hour"
+          placeholder="Hour"
+          required="required"
+        />
+        <br />
+        <br />
+        <input
+          class="textbox"
+          id="fourth"
+          type="text"
+          name="dayofyear"
+          placeholder="Day of Year"
+          required="required"
+        />
+        <br />
+        <br />
+        <input
+          class="textbox"
+          type="text"
+          name="weekofyear"
+          placeholder="Week of Year"
+          required="required"
+        />
+        <br />
+        <br />
+        <input
+          class="textbox"
+          type="text"
+          name="latitude"
+          placeholder="Latitude"
+          required="required"
+        />
+        <br />
+        <br />
+        <input
+          class="textbox"
+          type="text"
+          name="longitude"
+          placeholder="Longitude"
+          required="required"
+        />
+        <br />
+        <br />
+        <button class="btn" type="submit">Predict the Crime</button>
+      </form>
+      <br />
+      <h3 style="color: red">{{ prediction_text }}</h3>
+    </div>
+    <style>
+      body {
+        position: relative;
+      }
+
+      body::before {
+        content: "";
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: -1; 
+        background-image: url("https://images.pexels.com/photos/923681/pexels-photo-923681.jpeg?cs=srgb&dl=pexels-kat-wilcox-923681.jpg&fm=jpg");
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: 100% 100%;
+        filter: blur(5px);
+      }
+
+      .login {
+        max-width: 400px;
+        margin: 0 auto;
+        padding: 17px;
+        background-color: rgba(255, 255, 255, 0.7);
+        border-radius: 5px;
+        text-align: center;
+      }
+
+      .textbox {
+        outline: none;
+        width: 250px;
+        height: 30px;
+        border-radius: 2px;
+        border: 1px solid black;
+        font-size: medium;
+        padding: 5px;
+      }
+
+      .btn {
+        background-color: red;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        border-radius: 3px;
+        font-size: medium;
+      }
+
+      .btn:hover {
+        background-color: darkred;
+      }
+
+      h1 {
+        margin-top: 0;
+      }
+
+      h3 {
+        margin-top: 20px;
+      }
+    </style>
+  </body>
+</html>
